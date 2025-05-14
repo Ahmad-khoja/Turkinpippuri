@@ -1,0 +1,151 @@
+/*
+Theme Name: Turkinpippuri
+Theme URI: https://turkinpippuri.fi
+Author: Your Name
+Author URI: https://yoursite.com
+Description: Custom theme for Turkinpippuri restaurant
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: turkinpippuri
+*/
+
+/* The rest of your existing CSS will be imported */
+@import url("css/style.css"); 
+
+/* Consolidate repeated flexbox patterns */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Consolidate common button styles */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border-radius: 45px;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e69c00;
+}
+
+/* Consolidate breakpoints */
+:root {
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --primary-color: #ffbe33;
+  --primary-hover: #e69c00;
+  --secondary-color: #222831;
+  --text-color: #232323;
+  --light-bg: #f8f9fa;
+}
+
+/* Use consistent breakpoints */
+@media (min-width: 992px) {
+  .header_section,
+  .navbar-brand-container,
+  .custom-logo,
+  .navbar-nav,
+  .user_option {
+    /* Group related desktop styles */
+  }
+}
+
+/* Simplified grid system */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 15px;
+}
+
+/* Remove redundant width calculations */
+.food_section .all {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .food_section .all {
+    width: calc(50% - 30px);
+  }
+}
+
+@media (min-width: 992px) {
+  .food_section .all {
+    width: calc(33.333% - 30px);
+  }
+}
+
+/* Use hardware acceleration */
+.menu-item {
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--light-bg);
+  color: var(--text-color);
+}
+
+/* Optimize hover states */
+.menu-item:hover {
+  transform: translateY(-5px) translateZ(0);
+}
+
+/* Instead of */
+.food_section .filters_menu li.active {
+  background-color: #ffbe33;
+}
+
+/* Use */
+.filter-btn.active {
+  background-color: #ffbe33;
+}
+
+/* Use SVG for icons where possible */
+.spicy-badge {
+  background-image: url('data:image/svg+xml,...');
+  background-size: contain;
+}
+
+/* Optimize image loading */
+.img-box img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+/* Remove unnecessary prefixes for modern browsers */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Instead of */
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/* Use content-visibility for better performance */
+.menu-item {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Use will-change sparingly */
+.menu-item:hover {
+  will-change: transform;
+}
